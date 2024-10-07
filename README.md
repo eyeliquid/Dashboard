@@ -7,3 +7,9 @@ White: server with statis info
 
 
 In the server.js file you can add more servers. Search for gamedig list of games to get all the games that can be used.
+
+
+todo:
+Styling
+IP onafhankelijk maken > scanner op netwerk die de gameservers detecteerd
+
