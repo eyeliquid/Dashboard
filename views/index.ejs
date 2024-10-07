@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        // Refresh the page every 15 seconds (15,000 milliseconds)
+        setInterval(function () {
+            location.reload();
+        }, 45000);
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Game Server Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .server-container {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(20%, 1fr));
+            grid-gap: 10px;
+            margin: 20px;
+        }
+
+        .server-block {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .no-game-info {
+            background-color: rgb(75, 72, 72);
+            color: rgb(255, 255, 255);
+            /* Set text color to white for better visibility on the red background */
+        }
+
+        .server-name {
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid #303030;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .no-players {
+            background-color: #ff5733;
+            color: #fff;
+        }
+
+        .has-players {
+            background-color: #66cc33;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        .filter-dropdown {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/serverman.html">Server Management</a></li>
+            <li><a href="http://g4nbak:3000" target="_blank">monitoring</a></li>
+            <li><a href="/downloads.html">Downloads</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Game Server Information</h1>
+
+        <div class="server-container">
+            <% servers.forEach(server=> { %>
+                <div
+                    class="server-block <% if (server.players && server.players.length === 0) { %>no-players<% } else if (!server.raw) { %>no-game-info<% } else { %>has-players<% } %>">
+                    <h2 class="server-name">
+                        <% if (server.raw) { %>
+                            <%= server.raw.game || '' %>
+                                <%= server.raw.gamename || '' %>
+                                    <% } else { %>
+                                        No Game Info Available
+                                        <% } %>
+                    </h2>
+                    <p><strong>Servername:</strong>
+                        <%= server.name %>
+                    </p>
+                    <p><strong>IP:</strong>
+                        <%= server.connect %>
+                    </p>
+                    <p><strong>map:</strong>
+                        <%= server.map || 'N/A' %>
+                    </p>
+                    <p class="player-count"><strong>Players:</strong>
+                        <%= server.players ? server.players.length : 0 %>
+                    </p>
+                    <% if (server.players) { %>
+                        <p><strong>Players:</strong></p>
+                        <ul>
+                            <% server.players.forEach(player=> { %>
+                                <li><strong>Name:</strong>
+                                    <%= player.name %>, <strong>Score:</strong>
+                                        <%= player.score %>
+                                </li>
+                                <% }); %>
+                        </ul>
+                        <% } %>
+                </div>
+                <% }); %>
+                    <div class="server-block">
+                        <h2>Wreckfest</h2>
+                        <p>IP: 192.168.2.13:port</p>
+                    </div>
+                    <div class="server-block">
+                        <h2>Custom Block 2</h2>
+                        <p>This is custom information for Block 2.</p>
+                    </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        const serverBlocks = document.querySelectorAll(".server-block");
+
+        const hasPlayersBlocks = [];
+        const customInfoBlocks = [];
+
+        // Separate server blocks into two arrays
+        serverBlocks.forEach((block) => {
+            if (block.classList.contains("has-players")) {
+                hasPlayersBlocks.push(block);
+            } else {
+                customInfoBlocks.push(block);
+            }
+        });
+
+        // Clear the server container
+        const serverContainer = document.querySelector(".server-container");
+        serverContainer.innerHTML = "";
+
+        // Add blocks with players first
+        hasPlayersBlocks.forEach((block) => {
+            serverContainer.appendChild(block);
+        });
+
+        // Add custom information blocks
+        customInfoBlocks.forEach((block) => {
+            serverContainer.appendChild(block);
+        });
+    </script>
+</body>
+
+</html>
