@@ -12,7 +12,7 @@ This project consists of a Node.js server and a React application. Follow the in
 ### 1. Clone the repository
 
 bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/eyeliquid/dashboard.git
 cd your-repo-name
 
 ### 2. Install server dependencies
