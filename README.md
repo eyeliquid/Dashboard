@@ -1,5 +1,3 @@
-# Project Name
-
 This project consists of a Node.js server and a React application. Follow the instructions below to set up and run both parts of the project.
 
 ## Prerequisites
