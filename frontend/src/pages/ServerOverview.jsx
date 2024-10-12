@@ -1,6 +1,8 @@
 import { useGetData } from '../hooks/useApi';
 import ServerContainer from '../containers/ServerContainer';
 import { Spinner } from '../components/Spinner';
+import { Error } from '../components/Error';
+
 
 function ServerOverview() {
   const { data, isLoading, error } = useGetData('/api/servers');

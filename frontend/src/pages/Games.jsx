@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Card from '../components/Card';
 import { GAMES } from '../../../constants/games';
 

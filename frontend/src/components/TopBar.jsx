@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 const currentYear = new Date().getFullYear()
 
 export const Topbar = () => (
@@ -14,7 +12,3 @@ export const Topbar = () => (
 );
 
 export default Topbar;
-
-Topbar.propTypes = {
-  toggleSidebar: PropTypes.func.isRequired
-}
