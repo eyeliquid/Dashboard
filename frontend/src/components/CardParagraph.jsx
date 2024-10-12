@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const CardParagraph = ({ name, value, truncate = false }) => (
   <>
     <p className={`text-sm mb-1 ${truncate ? 'truncate' : ''}`}>
@@ -8,3 +10,9 @@ const CardParagraph = ({ name, value, truncate = false }) => (
 )
 
 export default CardParagraph;
+
+CardParagraph.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  truncate: PropTypes.bool
+}
