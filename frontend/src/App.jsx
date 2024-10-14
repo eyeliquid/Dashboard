@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
+import Sidebar from './components/Sidebar';
 import ServerOverview from './pages/ServerOverview';
 import Downloads from './pages/Downloads';
 import ServerManagement from './pages/ServerManagement';
