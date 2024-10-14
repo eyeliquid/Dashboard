@@ -3,6 +3,7 @@ import ServerContainer from '../containers/ServerContainer';
 import { Spinner } from '../components/Spinner';
 import { Error } from '../components/Error';
 
+import { DUMMY_SERVERS } from '../../../constants/dummyServers';
 
 function ServerOverview() {
   const { data, isLoading, error } = useGetData('/api/servers');
@@ -20,7 +21,7 @@ function ServerOverview() {
           ) : error ? (
             <Error />
           ) : (
-            <ServerContainer servers={data} />
+            <ServerContainer servers={DUMMY_SERVERS} />
           )}
         </div>
       </div>

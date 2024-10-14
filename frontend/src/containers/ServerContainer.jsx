@@ -7,9 +7,6 @@ const ServerContainer = ({ servers }) => {
       {servers.map((server, index) => (
         <ServerCard key={index} server={server} />
       ))}
-      {[...Array(5)].map((_, index) => (
-        <div key={`empty-${index}`} className="hidden 2xl:block" />
-      ))}
     </div>
   )
 }
