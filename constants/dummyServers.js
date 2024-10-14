@@ -9,7 +9,7 @@ export const DUMMY_SERVERS = [
       gamerevision: "d - Release",
       minnetver: 432,
       location: 0,
-      hostname: "UT TOERNAMENT",
+      hostname: "Unreal Tournament",
       hostport: 7777,
       maptitle: "Facing Worlds",
       mapname: "CTF-Face",
@@ -47,7 +47,7 @@ export const DUMMY_SERVERS = [
     ping: 49
   },
   {
-    name: "UT2004 Server",
+    name: "Unreal Tournament 2004",
     map: "DM-Rankin",
     password: false,
     raw: {
@@ -78,15 +78,15 @@ export const DUMMY_SERVERS = [
     },
     version: "",
     maxplayers: 16,
-    numplayers: 0,
-    players: [],
+    numplayers: 5,
+    players: [{"name": "Pook", "score": 10}, {"name": "Eyeliq", "score": 20}, {"name": "Bubba1", "score": 30}, {"name": "Bubba2", "score": 40}, {"name": "Bubba3", "score": 50}],
     bots: [],
     queryPort: 7783,
     connect: "192.168.2.14:7782",
     ping: 27
   },
   {
-    name: "A Minecraft ServerA Minecraft Server",
+    name: "Minecraft",
     map: "",
     password: false,
     raw: {
@@ -128,7 +128,7 @@ export const DUMMY_SERVERS = [
     ping: 11
   },
   {
-    name: "noname",
+    name: "Quake 3",
     map: "q3dm17",
     password: "0",
     raw: {
@@ -156,15 +156,15 @@ export const DUMMY_SERVERS = [
     },
     version: "Q3 1.32c linux-i386 May  8 2006",
     maxplayers: "8",
-    numplayers: 0,
-    players: [],
+    numplayers: 8,
+    players: [{"name": "Pook", "score": 10}, {"name": "Eyeliq", "score": 20}, {"name": "Bubba1", "score": 30}, {"name": "Bubba2", "score": 40}, {"name": "Bubba3", "score": 50}, {"name": "Bubba4", "score": 60}, {"name": "Bubba5", "score": 70}, {"name": "Bubba6", "score": 80}],
     bots: [],
     queryPort: 27960,
     connect: "192.168.2.14:27960",
     ping: 1
   },
   {
-    name: "Oldskool POEP DM",
+    name: "Half Life",
     map: "undertow",
     password: false,
     raw: {
@@ -216,7 +216,7 @@ export const DUMMY_SERVERS = [
     ping: 11
   },
   {
-    name: "poep coop",
+    name: "Sven Co-op",
     map: "BlackMesaEPF",
     password: false,
     raw: {
@@ -242,7 +242,7 @@ export const DUMMY_SERVERS = [
     ping: 8
   },
   {
-    name: "POEP2 DM",
+    name: "Half Life 2",
     map: "dm_lockdown",
     password: false,
     raw: {
@@ -286,7 +286,7 @@ export const DUMMY_SERVERS = [
     },
     version: "6630498",
     maxplayers: 30,
-    numplayers: 0,
+    numplayers: 3,
     players: [],
     bots: [],
     queryPort: 26903,
@@ -294,7 +294,7 @@ export const DUMMY_SERVERS = [
     ping: 9
   },
   {
-    name: "ALien swarm Reactive",
+    name: "Alien Swarm Reactive Drop",
     map: "ASI-Jac1-LandingBay_01",
     password: false,
     raw: {
@@ -312,8 +312,8 @@ export const DUMMY_SERVERS = [
     },
     version: "7.1.4.5",
     maxplayers: 8,
-    numplayers: 0,
-    players: [],
+    numplayers: 2,
+    players: [{"name": "Pook", "score": 10}, {"name": "Eyeliq", "score": 20}],
     bots: [],
     queryPort: 27018,
     connect: "192.168.2.14:27018",
