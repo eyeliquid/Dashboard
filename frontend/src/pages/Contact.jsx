@@ -2,17 +2,17 @@ import Card from "@/components/Card";
 
 const Contact = () => {
   return (
-    <div className="h-screen w-2/4 overflow-y-auto bg-gray-900 text-white">
-      <Card title="Lan locatie">
+    <div className="h-screen w-fit overflow-y-auto bg-gray-900 text-white">
+      <Card title="Wanneer, wat en waar!">
         <p>Kampeerboerderij De Zandkamp</p>
         <p>Zandkampweg 21</p>
         <p>3853 PN Ermelo</p>
-      </Card>
-      <Card title="Wanneer?">
+        <br />
         <p><b>Arrival:</b> Thursday 21st of November 2024 12:00</p>
         <p><b>Departure:</b> Sunday 24th of November 2024 16:00</p>
-      </Card>
-      <Card title="Verplicht mee nemen">
+        <br />
+        <h3><b>Verplicht mee te nemen</b></h3>
+        <br />
         <p>UTP kabel</p>
         <p>Stekkerdoos</p>
         <p>Haspel</p>
