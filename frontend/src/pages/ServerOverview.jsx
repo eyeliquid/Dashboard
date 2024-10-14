@@ -11,14 +11,12 @@ function ServerOverview() {
   const { data, isLoading, error } = useGetData('/api/servers');
 
   const sortedServers = React.useMemo(() => {
-    const testData = DUMMY_SERVERS;
-    if (!testData) return [];
-    return [...testData].sort((a, b) => {
-      if (a.numplayers > 0 && b.numplayers === 0) return -1;
-      if (a.numplayers === 0 && b.numplayers > 0) return 1;
-      return 0;
-    });
-  }, []);
+    const serverData = import.meta.env.MODE === 'development' ? DUMMY_SERVERS : data;
+
+    if (!serverData) return [];
+  
+    return [...serverData].sort((a, b) => b.numplayers - a.numplayers);
+  }, [data]);
 
   return (
     <div className="w-full h-screen flex flex-col overflow-y-auto">
@@ -26,7 +24,7 @@ function ServerOverview() {
         <h1 className="text-2xl font-bold mb-4">Server Overview</h1>
         <p className="mb-4">Who&apos;s playing what?</p>
       </div>
-      <div className="flex-grow relative">
+      <div className="flex-grow relative mb-32">
         {error ? (
           <Error />
         ) : isLoading ? (
