@@ -1,16 +1,15 @@
-import React, { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
+
 import { useGetData } from '../hooks/useApi';
 import { Spinner } from '../components/Spinner';
 import { Error } from '../components/Error';
-
+import { ServerCard } from '../components/ServerCard';
 import { DUMMY_SERVERS } from '../../../constants/dummyServers';
-
-const ServerContainer = React.lazy(() => import('../containers/ServerContainer'));
 
 function ServerOverview() {
   const { data, isLoading, error } = useGetData('/api/servers');
 
-  const sortedServers = React.useMemo(() => {
+  const sortedServers = useMemo(() => {
     const serverData = import.meta.env.MODE === 'development' ? DUMMY_SERVERS : data;
 
     if (!serverData) return [];
@@ -19,20 +18,19 @@ function ServerOverview() {
   }, [data]);
 
   return (
-    <div className="w-full h-screen flex flex-col overflow-y-auto">
-      <div className="p-4 text-white">
-        <h1 className="text-2xl font-bold mb-4">Server Overview</h1>
-        <p className="mb-4">Who&apos;s playing what?</p>
-      </div>
-      <div className="flex-grow relative mb-32">
+    <div className="h-screen overflow-y-auto no-scrollbar no-scrollbar::-webkit-scrollbar bg-gray-900 text-white">
+      <div className="container p-4 pb-16 mb-24">
+        <h1 className="text-2xl font-bold mb-8">Who&apos;s playing what?</h1>
         {error ? (
           <Error />
         ) : isLoading ? (
           <Spinner />
         ) : (
-          <Suspense fallback={<Spinner />}>
-            <ServerContainer servers={sortedServers} />
-          </Suspense>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+            {sortedServers.map((server, index) => (
+              <ServerCard key={index} server={server} />
+            ))} 
+          </div>
         )}
       </div>
     </div>

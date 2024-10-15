@@ -13,7 +13,7 @@ function App() {
       <Topbar />
       <div className="flex flex-1 pt-16">
         <Sidebar className="w-64" />
-        <main className="flex-1 pl-64">
+        <main className="pl-64">
           <div className="h-full w-full bg-gray-900 p-6">
             <Routes>
               <Route path="/" element={<ServerOverview />} />
