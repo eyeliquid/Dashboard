@@ -1,4 +1,4 @@
-import { Suspense, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { useGetData } from '../hooks/useApi';
 import { Spinner } from '../components/Spinner';
@@ -19,19 +19,20 @@ function ServerOverview() {
 
   return (
     <div className="h-screen overflow-y-auto no-scrollbar no-scrollbar::-webkit-scrollbar bg-gray-900 text-white">
-      <div className="container p-4 pb-16 mb-24">
-        <h1 className="text-2xl font-bold mb-8">Who&apos;s playing what?</h1>
-        {error ? (
-          <Error />
-        ) : isLoading ? (
-          <Spinner />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-            {sortedServers.map((server, index) => (
-              <ServerCard key={index} server={server} />
-            ))} 
-          </div>
-        )}
+      <div className="p-4 pb-16 mb-24">
+        <div className="flex flex-col h-full items-center justify-center">
+          {error ? (
+            <Error />
+          ) : isLoading ? (
+            <Spinner />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-4 2xl:grid-cols-5 gap-4">
+              {sortedServers.map((server, index) => (
+                <ServerCard key={index} server={server} />
+              ))} 
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
