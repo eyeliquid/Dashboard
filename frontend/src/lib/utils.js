@@ -11,3 +11,7 @@ export const handleJoinGame = (steamId, connect) => {
     window.location.href = steamURL;
   }
 };
+
+export const isSteamGame = (server) => {
+  return server.raw?.steamid?.length > 0;
+};

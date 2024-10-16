@@ -8,10 +8,10 @@ export const PlayersCard = ({ players, togglePlayerList }) => (
     <div className="flex items-center justify-between mb-2">
       <h2 className="text-lg font-bold line-clamp-1">Player List</h2>
       <Button 
-        onClick={togglePlayerList} 
-        className="text-gray-300 hover:text-white"
+        onClick={togglePlayerList}
+        className="bg-slate-500 text-gray-300 hover:text-white¬"
       >
-        <X className="w-5 h-5" />
+        <X className="w-4 h-4" />
       </Button>
     </div>
     <PlayerList players={players || []} />
