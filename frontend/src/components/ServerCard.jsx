@@ -10,7 +10,7 @@ const isSteamGame = (server) => {
   return server.raw?.steamid?.length > 0;
 }
 
-export const ServerCard = ({ server }) => {
+const ServerCard = ({ server }) => {
   const [showPlayerList, setShowPlayerList] = useState(false);
 
   const togglePlayerList = () => setShowPlayerList(!showPlayerList);
@@ -67,3 +67,5 @@ export const ServerCard = ({ server }) => {
 ServerCard.propTypes = {
   server: PropTypes.object.isRequired,
 }
+
+export default ServerCard;

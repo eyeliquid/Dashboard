@@ -26,6 +26,9 @@ export function useServerData() {
       setIsLoading(false);
     });
 
+    // Request initial data
+    socket.emit('requestInitialData');
+
     return () => {
       socket.disconnect();
     };

@@ -58,8 +58,9 @@ async function fetchAndBroadcastServerInfo() {
 io.on('connection', (socket) => {
   console.log('A client connected');
   
-  // Send initial server info when a client connects
-  fetchAndBroadcastServerInfo();
+  socket.on('requestInitialData', () => {
+    fetchAndBroadcastServerInfo();
+  });
 
   socket.on('disconnect', () => {
     console.log('A client disconnected');
