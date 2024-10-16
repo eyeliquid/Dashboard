@@ -4,7 +4,7 @@ import PlayerList from './PlayerList';
 import { Button } from './ui/button';
 
 export const PlayersCard = ({ players, togglePlayerList }) => (
-  <article className="w-[318px] h-[480px] flex flex-col text-white p-4 bg-slate-700 shadow-lg rounded overflow-hidden">
+  <article className="w-[318px] flex flex-col text-white h-full p-4 bg-slate-700 shadow-lg rounded overflow-hidden border-2 border-gray-500 hover:border-gray-300 cursor-pointer">
     <div className="flex items-center justify-between mb-2">
       <h2 className="text-lg font-bold line-clamp-1">Player List</h2>
       <Button 
