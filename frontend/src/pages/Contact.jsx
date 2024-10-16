@@ -2,7 +2,7 @@ import Card from "@/components/Card";
 
 const Contact = () => {
   return (
-    <div className="h-screen w-fit overflow-y-auto bg-gray-900 text-white">
+    <div className="h-screen w-fit overflow-y-auto bg-gray-900 text-white p-8">
       <Card title="Wanneer, wat en waar!">
         <p>Kampeerboerderij De Zandkamp</p>
         <p>Zandkampweg 21</p>

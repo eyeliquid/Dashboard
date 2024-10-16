@@ -18,7 +18,7 @@ function App() {
         {/* On desktop, the sidebar is displayed on the left */}
         <Sidebar />
         <main className="w-full xl:pl-64">
-          <div className="h-full w-full bg-gray-900 my-16 lg:mb-0">
+          <div className="h-full w-full bg-gray-900 my-16 lg:my-8">
             <Routes>
               <Route path="/" element={<ServerOverview />} />
               <Route path="/games" element={<Games />} />
