@@ -4,6 +4,6 @@ export const NAVIGATION_ITEMS = [
   { name: 'Servers', path: '/', icon: Home },
   { name: 'Games', path: '/games', icon: Gamepad },
   { name: 'Downloads', path: '/downloads', icon: Download },
-  { name: 'Server Management', path: '/management', icon: Server },
+  { name: 'Config', path: '/config', icon: Server },
   { name: 'Contact', path: '/contact', icon: Mail },
 ];

@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import { gameServerInfo } from '../../../constants/gameServerInfo'; 
 
-const ServerManagement = () => {
+const ServerConfig = () => {
   return (
     <div className="h-screen bg-gray-900 text-white overflow-y-auto">
       <div className="container p-4 pb-16 mb-24">
@@ -20,4 +20,4 @@ const ServerManagement = () => {
   )
 }
 
-export default ServerManagement;
+export default ServerConfig;
