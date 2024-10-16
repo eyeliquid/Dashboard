@@ -5,7 +5,11 @@ import { GAME_IMAGE_URLS } from '../../../constants/gameImageUrls'
 import { ServerCardFooter } from './ServerCardFooter';
 import { PlayersCard } from './PlayersCard';
 import { Badge } from './ui/badge';
-import { isSteamGame } from '../lib/utils';
+
+const isSteamGame = (server) => {
+  return server.raw?.steamid?.length > 0;
+}
+
 export const ServerCard = ({ server }) => {
   const [showPlayerList, setShowPlayerList] = useState(false);
 
@@ -35,7 +39,7 @@ export const ServerCard = ({ server }) => {
           </div>
         </div>
         {/* Will make badges more dynamic later */}
-        {isSteamGame && 
+        {isSteamGame(server) && 
           <div className="flex flex-wrap gap-2 mt-2 mb-3">
             <Badge variant="secondary">#steam</Badge>
           </div>

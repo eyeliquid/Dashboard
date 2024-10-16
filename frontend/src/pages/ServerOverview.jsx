@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
-import { useGetData } from '../hooks/useApi';
+import { useServerData } from '../hooks/useServerData';
 import { Spinner } from '../components/Spinner';
 import { Error } from '../components/Error';
 import { ServerCard } from '../components/ServerCard';
 import { DUMMY_SERVERS } from '../../../constants/dummyServers';
 
 function ServerOverview() {
-  const { data, isLoading, error } = useGetData('/api/servers');
+  const { data, isLoading, error } = useServerData();
 
   const sortedServers = useMemo(() => {
     const serverData = import.meta.env.MODE === 'development' ? DUMMY_SERVERS : data;
