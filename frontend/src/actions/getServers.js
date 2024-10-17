@@ -2,7 +2,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3010';
 
 export async function getServers() {
   try {
-    const response = await fetch(`${API_URL}/servers`);
+    const response = await fetch(`${API_URL}/api/servers`);
     if (!response.ok) {
       throw new Error('Failed to fetch servers');
     }
