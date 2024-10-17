@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types'
 import { ServerInfo } from './ServerInfo'
-import { GAME_IMAGE_URLS } from '../../../constants/gameImageUrls'
+import { GAME_IMAGE_URLS } from '../constants/gameImageUrls'
 import { ServerCardFooter } from './ServerCardFooter';
 import { PlayersCard } from './PlayersCard';
 import { Badge } from './ui/badge';
@@ -26,7 +26,7 @@ const ServerCard = ({ server }) => {
   }
 
   return (
-    <article className="w-[318px] flex flex-col justify-between text-white h-full p-4 bg-slate-700 shadow-lg rounded overflow-hidden border-2 border-gray-500 hover:border-gray-300 cursor-pointer">
+    <article className="w-[318px] h-[530px] flex flex-col justify-between text-white h-full p-4 bg-slate-700 shadow-lg rounded overflow-hidden border-2 border-gray-500 hover:border-gray-300 cursor-pointer">
       <div>
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold line-clamp-1">{server.raw ?
@@ -45,13 +45,16 @@ const ServerCard = ({ server }) => {
           </div>
         }
         <ServerInfo server={server} />
-        <div className="w-[302px] h-[285px] flex items-center justify-center">
-          <img 
-            src={GAME_IMAGE_URLS[server.name] || '/assets/no_image.jpeg'}   
-            alt={server.name || 'Server image'} 
-            className="max-w-full max-h-full object-contain rounded-lg"
-          />
-        </div>
+        { GAME_IMAGE_URLS[server.name] ?
+          <div className="h-[285px] flex items-center justify-center">
+            <img 
+              src={GAME_IMAGE_URLS[server.name]}   
+              alt={server.name || 'Server image'} 
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </div> :
+          <div className="h-[285px] bg-gray-600 rounded-lg"/>
+        }
       </div>
       <ServerCardFooter 
         numplayers={server.numplayers} 

@@ -8,7 +8,7 @@ export const ServerCardFooter = ({ numplayers, maxplayers, togglePlayerList, ste
   <div className="w-full flex items-center justify-between mt-4">
     <div className="flex items-center">
       <Users className="w-4 h-4" />
-      <span className="text-sm ml-1">{numplayers} / {maxplayers}</span>
+      <span className="text-sm ml-1">{numplayers || 0} / {maxplayers || 0}</span>
     </div>
     <div className="flex space-x-2">
       {steamId && (
@@ -19,12 +19,14 @@ export const ServerCardFooter = ({ numplayers, maxplayers, togglePlayerList, ste
           Join game
         </Button>
       )}
-      <Button 
-        onClick={togglePlayerList} 
-        className="px-2 py-1 text-xs bg-gray-500 hover:bg-gray-600 rounded"
-      >
-        Playerlist
-      </Button>
+      {numplayers > 0 && (
+        <Button 
+          onClick={togglePlayerList} 
+          className="px-2 py-1 text-xs bg-gray-500 hover:bg-gray-600 rounded"
+        >
+          Playerlist
+        </Button>
+      )}
     </div>
   </div>
 )

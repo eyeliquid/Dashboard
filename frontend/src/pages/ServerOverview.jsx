@@ -3,7 +3,7 @@ import { useMemo, lazy, Suspense } from 'react';
 import { useServerData } from '../hooks/useServerData';
 import { Error } from '../components/Error';
 import { SkeletonServerCard } from '../components/SkeletonServerCard';
-import { DUMMY_SERVERS } from '../../../constants/dummyServers';
+import { DUMMY_SERVERS } from '../constants/dummyServers';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 const LazyServerCard = lazy(() => import('../components/ServerCard'));
@@ -13,7 +13,6 @@ function ServerOverview() {
 
   const sortedServers = useMemo(() => {
     const serverData = import.meta.env.MODE === 'development' ? DUMMY_SERVERS : data;
-
     if (!serverData || !Array.isArray(serverData)) return [];
   
     return [...serverData]

@@ -1,5 +1,5 @@
 import Card from '../components/Card';
-import { DOWNLOADS_GAMES_FOLDER, DOWNLOADS_SERVER_FILES_FOLDER } from '../../../constants/links';
+import { DOWNLOADS_GAMES_FOLDER, DOWNLOADS_SERVER_FILES_FOLDER } from '../constants/links';
 
 const Downloads = () => {
   return (

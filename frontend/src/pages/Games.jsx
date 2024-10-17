@@ -1,5 +1,5 @@
 import Card from '../components/Card';
-import { GAMES } from '../../../constants/games';
+import { GAMES } from '../constants/games';
 
 const Games = () => (
   <div className="h-screen overflow-y-auto bg-gray-900 text-white">

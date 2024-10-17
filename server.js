@@ -74,7 +74,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
 });
 
-// Change app.listen to server.listen
-server.listen(port, () => {
+server.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
 });
