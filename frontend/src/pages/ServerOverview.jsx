@@ -2,11 +2,11 @@ import { useMemo, lazy, Suspense } from 'react';
 
 import { useServerData } from '../hooks/useServerData';
 import { Error } from '../components/Error';
-import { SkeletonServerCard } from '../components/SkeletonServerCard';
+import { SkeletonServerCard } from '../components/servers/SkeletonServerCard';
 import { DUMMY_SERVERS } from '../constants/dummyServers';
 import ErrorBoundary from '../components/ErrorBoundary';
 
-const LazyServerCard = lazy(() => import('../components/ServerCard'));
+const LazyServerCard = lazy(() => import('../components/servers/ServerCard'));
 
 function ServerOverview() {
   const { data, isLoading, error } = useServerData();

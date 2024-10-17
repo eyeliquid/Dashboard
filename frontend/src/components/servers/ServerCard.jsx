@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types'
 import { ServerInfo } from './ServerInfo'
-import { GAME_IMAGE_URLS } from '../constants/gameImageUrls'
-import { ServerCardFooter } from './servers/ServerCardFooter';
-import { PlayersCard } from './PlayersCard';
-import { Badge } from './ui/badge';
+import { GAME_IMAGE_URLS } from '../../constants/gameImageUrls'
+import { ServerCardFooter } from './ServerCardFooter';
+import { PlayersCard } from '../PlayersCard';
+import { Badge } from '../ui/badge';
 
 const isSteamGame = (server) => {
   return server.raw?.steamid?.length > 0;

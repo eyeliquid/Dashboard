@@ -1,8 +1,8 @@
 import { Users } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import PropTypes from 'prop-types';
 
-import { handleJoinGame } from '../lib/utils';
+import { handleJoinGame } from '../../lib/utils';
 
 export const ServerCardFooter = ({ numplayers, maxplayers, togglePlayerList, steamId, connect }) => (
   <div className="w-full flex items-center justify-between mt-4">

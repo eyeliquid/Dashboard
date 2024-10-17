@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import CardParagraph from './CardParagraph'
+import CardParagraph from '../CardParagraph'
 
 export const ServerInfo = ({ server }) => (
   <div className="my-4">
