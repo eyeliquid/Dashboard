@@ -6,10 +6,9 @@ const Games = () => (
     <div className="container mx-auto p-4 pb-16">
       <h1 className="text-2xl font-bold mb-8">Which games do we play?</h1>
       <div className="flex h-full items-center justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4 mb-16">
-
+        <div className="gap-8 columns-3">
           {GAMES.map((game) => (
-            <div key={game.name} className="[grid-row-end:span_calc(var(--card-height)/10)]">
+            <div key={game.name} className="mb-8">
               <GameCard 
                 title={game.name}
               >
