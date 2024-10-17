@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-const API_URL = 'http://localhost:3010'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3010';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 

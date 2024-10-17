@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { GAME_IMAGE_URLS } from '../../constants/gameImageUrls';
 import { Button } from '../ui/button';
+
 const GameCard = ({ title, children }) => (
   <div className="bg-gray-800 h-full lg:w-[320px] rounded-lg overflow-hidden shadow-lg transition-all duration-300 border-2 border-gray-500 hover:border-gray-300 cursor-pointer flex flex-col">
     {GAME_IMAGE_URLS[title] && (

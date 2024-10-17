@@ -14,18 +14,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = 3010;
+const port = process.env.PORT || 3010;
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
 
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: frontendUrl
 }));
 
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: frontendUrl,
     methods: ['GET', 'POST']
   }
 });

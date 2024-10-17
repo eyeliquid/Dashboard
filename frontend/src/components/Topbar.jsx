@@ -1,4 +1,4 @@
-import logo from '../../public/assets/logoblack.jpg';
+import logo from '../assets/logoblack.jpg';
 
 const currentYear = new Date().getFullYear()
 
