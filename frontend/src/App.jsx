@@ -20,14 +20,18 @@ function App() {
         <Sidebar />
         <ErrorBoundary>
           <main className="w-full xl:pl-64">
-            <div className="h-full w-full bg-gray-900 my-16 lg:my-8">
-              <Routes>
-                <Route path="/" element={<ServerOverview />} />
-                <Route path="/games" element={<Games />} />
-                <Route path="/downloads" element={<Downloads />} />
-                <Route path="/config" element={<ServerConfig />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
+            <div className="h-screen overflow-y-auto no-scrollbar no-scrollbar::-webkit-scrollbar bg-gray-900 text-white">
+              <div className="p-4 pb-16 mt-8 mb-24">
+                <div className="flex flex-col h-full items-center justify-center">
+                  <Routes>
+                    <Route path="/" element={<ServerOverview />} />
+                    <Route path="/games" element={<Games />} />
+                    <Route path="/downloads" element={<Downloads />} />
+                    <Route path="/config" element={<ServerConfig />} />
+                    <Route path="/contact" element={<Contact />} />
+                  </Routes>
+                </div>
+              </div>
             </div>
           </main>
         </ErrorBoundary>

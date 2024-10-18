@@ -21,29 +21,25 @@ function ServerOverview() {
   }, [data]);
 
   return (
-    <div className="h-screen overflow-y-auto no-scrollbar no-scrollbar::-webkit-scrollbar bg-gray-900 text-white">
-      <div className="p-4 pb-16 mb-24">
-        <div className="flex flex-col h-full items-center justify-center">
-          {error ? (
-            <Error />
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
-              {isLoading || !data
-                ? Array(12).fill().map((_, index) => (
-                  <SkeletonServerCard key={index} />
-                ))
-                : sortedServers.map((server, index) => (
-                  <ErrorBoundary key={server.id || index}>
-                    <Suspense fallback={<SkeletonServerCard />}>
-                      <LazyServerCard server={server} />
-                    </Suspense>
-                  </ErrorBoundary>
-                ))} 
-            </div>
-          )}
+    <>
+      {error ? (
+        <Error />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
+          {isLoading || !data
+            ? Array(12).fill().map((_, index) => (
+              <SkeletonServerCard key={index} />
+            ))
+            : sortedServers.map((server, index) => (
+              <ErrorBoundary key={server.id || index}>
+                <Suspense fallback={<SkeletonServerCard />}>
+                  <LazyServerCard server={server} />
+                </Suspense>
+              </ErrorBoundary>
+            ))} 
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

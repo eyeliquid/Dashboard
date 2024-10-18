@@ -3,7 +3,7 @@ import { DOWNLOADS_GAMES_FOLDER, DOWNLOADS_SERVER_FILES_FOLDER } from '../consta
 
 const Downloads = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <div className="p-4 text-white">
         <h1 className="text-2xl font-bold mb-4">Downloads</h1>
         <p className="mb-4">Download the latest game clients and server files here.</p>
@@ -18,7 +18,7 @@ const Downloads = () => {
           </Card>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
