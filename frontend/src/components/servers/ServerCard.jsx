@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ServerInfo } from './ServerInfo'
 import { GAME_IMAGE_URLS } from '../../constants/gameImageUrls'
 import { ServerCardFooter } from './ServerCardFooter';
-import { PlayersCard } from '../PlayersCard';
+import { PlayersCard } from './PlayersCard';
 import { Badge } from '../ui/badge';
 
 const isSteamGame = (server) => {
