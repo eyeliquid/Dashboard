@@ -37,6 +37,7 @@ describe('ServerInfoFetcher', () => {
       expect(mockGameDig.query).toHaveBeenCalledWith(mockServerConfig);
       expect(result).toEqual({ 
           name: mockServerConfig.name, 
+          type: mockServerConfig.type,
           error: `Error fetching server info for ${mockServerConfig.name} at ${mockServerConfig.host}:${mockServerConfig.port}: ${mockError.message}`
       });
   });
@@ -67,7 +68,7 @@ describe('ServerInfoFetcher', () => {
         const mockError = new Error('Connection failed');
 
         mockGameDig.query.mockResolvedValueOnce(mockServerInfo1)
-                          .mockRejectedValueOnce(new Error('Connection failed'));
+                          .mockRejectedValueOnce(mockError);
 
         const result = await serverInfoFetcher.fetchAllServersInfo(mockServerConfigs);
 
@@ -76,6 +77,7 @@ describe('ServerInfoFetcher', () => {
             mockServerInfo1,
             { 
               name: 'TestServer2', 
+              type: 'test2',
               error: `Error fetching server info for TestServer2 at localhost:5678: ${mockError.message}`
           }
         ]);

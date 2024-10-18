@@ -9,7 +9,7 @@ function Sidebar() {
     }`;
 
   return (
-    <nav className="max-h-lvh	text-white w-64 fixed top-0 left-0 h-full pt-16 flex-shrink-0 border-r-2 border-gray-700">
+    <nav className="hidden xl:block text-white w-[158px] md:w-64 fixed top-0 left-0 h-full pt-16 flex-shrink-0 border-r-2 border-gray-700">
       <ul className="space-y-2 p-4">
         {NAVIGATION_ITEMS.map((item) => (
           <li key={item.name}>

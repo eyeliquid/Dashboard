@@ -1,30 +1,45 @@
-import { useGetData } from '../hooks/useApi';
-import ServerContainer from '../containers/ServerContainer';
-import { Spinner } from '../components/Spinner';
-import { Error } from '../components/Error';
+import { useMemo, lazy, Suspense } from 'react';
 
+import { useServerData } from '../hooks/useServerData';
+import { Error } from '../components/Error';
+import { SkeletonServerCard } from '../components/servers/SkeletonServerCard';
+import { DUMMY_SERVERS } from '../constants/dummyServers';
+import ErrorBoundary from '../components/ErrorBoundary';
+
+const LazyServerCard = lazy(() => import('../components/servers/ServerCard'));
 
 function ServerOverview() {
-  const { data, isLoading, error } = useGetData('/api/servers');
+  const { data, isLoading, error } = useServerData();
+
+  const sortedServers = useMemo(() => {
+    const serverData = import.meta.env.MODE === 'development' ? DUMMY_SERVERS : data;
+    if (!serverData || !Array.isArray(serverData)) return [];
+  
+    return [...serverData]
+      .filter(server => server && typeof server === 'object')
+      .sort((a, b) => (b.numplayers || 0) - (a.numplayers || 0));
+  }, [data]);
 
   return (
-    <div className="w-full h-screen flex flex-col overflow-y-auto">
-      <div className="p-4 text-white">
-        <h1 className="text-2xl font-bold mb-4">Server Overview</h1>
-        <p className="mb-4">View the status of all your servers here.</p>
-      </div>
-      <div className="flex-grow">
-        <div className="p-4 pb-36 h-full">
-          {isLoading ? (
-            <Spinner />
-          ) : error ? (
-            <Error />
-          ) : (
-            <ServerContainer servers={data} />
-          )}
+    <>
+      {error ? (
+        <Error />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
+          {isLoading || !data
+            ? Array(12).fill().map((_, index) => (
+              <SkeletonServerCard key={index} />
+            ))
+            : sortedServers.map((server, index) => (
+              <ErrorBoundary key={server.id || index}>
+                <Suspense fallback={<SkeletonServerCard />}>
+                  <LazyServerCard server={server} />
+                </Suspense>
+              </ErrorBoundary>
+            ))} 
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

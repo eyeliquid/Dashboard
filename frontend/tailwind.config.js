@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+import plugin from 'tailwindcss/plugin'
 
 export default {
   darkMode: ["class"],
@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
   	extend: {
+		  screens: {
+			  '3xl': '1920px',
+			  '4xl': '2560px',
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -58,5 +62,26 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
+        },
+        '.content-hidden': {
+          'content-visibility': 'hidden',
+        },
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+        },
+        '.no-scrollbar::-webkit-scrollbar': {
+          'display': 'none',
+        }
+      })
+    })
+  ]
 }

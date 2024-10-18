@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run tests from the root
+npm test
+
+# Change to the frontend directory and run lint
+cd frontend && npm run lint
