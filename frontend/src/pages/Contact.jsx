@@ -3,6 +3,7 @@ import Card from "@/components/Card";
 const Contact = () => {
   return (
     <>
+      <h1 className="text-2xl font-bold mb-8">Waar, wanneer en wat?</h1>
       <Card title="Wanneer, wat en waar!">
         <p>Kampeerboerderij De Zandkamp</p>
         <p>Zandkampweg 21</p>
