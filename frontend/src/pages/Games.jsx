@@ -3,7 +3,7 @@ import { GAMES } from '../constants/games';
 
 const Games = () => (
   <>
-    <div className="gap-8 columns-3">
+    <div className="gap-8 columns-1 md:columns-2 lg:columns-3 xl:columns-4 3xl:columns-5">
       {GAMES.map((game) => (
         <div key={game.name} className="mb-8">
           <GameCard 
