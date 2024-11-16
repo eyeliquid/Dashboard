@@ -1,5 +1,5 @@
 import Card from '../components/Card';
-import { gameServerInfo } from '../constants/gameServerInfo'; 
+import { gameServerInfo } from '../constants/gameServerInfo';
 
 const ServerConfig = () => {
   return (
@@ -15,7 +15,7 @@ const ServerConfig = () => {
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default ServerConfig;

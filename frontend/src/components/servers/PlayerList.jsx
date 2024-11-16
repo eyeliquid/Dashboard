@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const PlayerList = ({ players }) => {
   return (
@@ -26,15 +26,17 @@ const PlayerList = ({ players }) => {
         <p className="text-center text-gray-400">No players currently in the server.</p>
       )}
     </div>
-  )
-}
+  );
+};
 
 PlayerList.propTypes = {
-  players: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    score: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    time: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-  })).isRequired,
-}
+  players: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      score: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      time: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    })
+  ).isRequired,
+};
 
 export default PlayerList;

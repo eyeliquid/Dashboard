@@ -4,7 +4,9 @@ export class ServerInfoFetcher {
   }
 
   async fetchAllServersInfo(serverConfigs) {
-    const serverInfoPromises = serverConfigs.map(config => this.fetchServerInfo(config));
+    const serverInfoPromises = serverConfigs.map((config) =>
+      this.fetchServerInfo(config),
+    );
     return Promise.all(serverInfoPromises);
   }
 
@@ -14,12 +16,12 @@ export class ServerInfoFetcher {
     } catch (error) {
       const errorMessage = `Error fetching server info for ${serverConfig.name} at ${serverConfig.host}:${serverConfig.port}: ${error.message}`;
       console.error(errorMessage);
-        
-      return { 
-        name: serverConfig.name, 
+
+      return {
+        name: serverConfig.name,
         type: serverConfig.type,
-        error: errorMessage 
-    };
+        error: errorMessage,
+      };
     }
   }
 }

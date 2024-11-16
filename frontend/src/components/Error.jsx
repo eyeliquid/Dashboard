@@ -1,3 +1,1 @@
-export const Error = (error) => (
-  <p className="text-white">Error: {error}</p>
-)
+export const Error = (error) => <p className="text-white">Error: {error}</p>;

@@ -17,12 +17,12 @@ function AuthPage() {
       // Here you would typically make an API call to authenticate or register
       // For this example, we'll just simulate a successful sign-in
       const response = { token: 'fake_token', expiresIn: 3600, email };
-      
+
       const isSignedIn = signIn({
         token: response.token,
         expiresIn: response.expiresIn,
-        tokenType: "Bearer",
-        authState: { email: response.email }
+        tokenType: 'Bearer',
+        authState: { email: response.email },
       });
 
       if (isSignedIn) {

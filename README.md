@@ -21,7 +21,6 @@ npm install
 
 ### 3. Install client dependencies
 
-
 ## Running the Application
 
 ### 1. Start the Node.js server
@@ -52,7 +51,6 @@ In the `client` directory:
 
 bash
 npm run build
-
 
 This will create a production-ready build in the `client/build` directory.
 

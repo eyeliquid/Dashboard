@@ -10,14 +10,14 @@ import goldenEyeSource from '../assets/goldeneyesource.jpeg';
 import halfLifeDM from '../assets/halflifedeatchmatch.webp';
 
 export const GAME_IMAGE_URLS = {
-  "Unreal Tournament": unrealTournament,
-  "Unreal Tournament 2004": unrealTournament2004,
-  "Half Life": halfLife,
-  "Half Life 2": halfLife2,
-  "Sven Co-op": svenCoop,
-  "Quake 3": quake3,
-  "Minecraft": minecraft,
-  "Alien Swarm Reactive Drop": alienSwarm,
-  "GoldenEye: Source": goldenEyeSource,
-  "HalfLife DM source": halfLifeDM,
+  'Unreal Tournament': unrealTournament,
+  'Unreal Tournament 2004': unrealTournament2004,
+  'Half Life': halfLife,
+  'Half Life 2': halfLife2,
+  'Sven Co-op': svenCoop,
+  'Quake 3': quake3,
+  Minecraft: minecraft,
+  'Alien Swarm Reactive Drop': alienSwarm,
+  'GoldenEye: Source': goldenEyeSource,
+  'HalfLife DM source': halfLifeDM,
 };

@@ -9,7 +9,7 @@ function ErrorBoundary({ children }) {
       // Update error state
       setErrorState({ hasError: true, error, errorInfo: error.stack });
       // You can log the error to an error reporting service
-      console.error("Uncaught error:", error);
+      console.error('Uncaught error:', error);
     };
 
     // Add event listener for uncaught errors

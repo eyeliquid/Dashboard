@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import Card from '@/components/Card';
 
 const Contact = () => {
   return (
@@ -9,8 +9,12 @@ const Contact = () => {
         <p>Zandkampweg 21</p>
         <p>3853 PN Ermelo</p>
         <br />
-        <p><b>Arrival:</b> Thursday 21st of November 2024 - <b>12:00</b></p>
-        <p><b>Departure:</b> Sunday 24th of November 2024 -<b>16:00</b></p>
+        <p>
+          <b>Arrival:</b> Thursday 21st of November 2024 - <b>12:00</b>
+        </p>
+        <p>
+          <b>Departure:</b> Sunday 24th of November 2024 -<b>16:00</b>
+        </p>
         <br />
         <h3 className="mb-2 font-bold">Verplicht mee te nemen</h3>
         <p>- UTP kabel</p>
@@ -22,7 +26,7 @@ const Contact = () => {
         <p>- Deo</p>
       </Card>
     </>
-  )
-}
+  );
+};
 
 export default Contact;

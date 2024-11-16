@@ -14,9 +14,9 @@ function ServerOverview() {
   const sortedServers = useMemo(() => {
     const serverData = import.meta.env.MODE === 'development' ? DUMMY_SERVERS : data;
     if (!serverData || !Array.isArray(serverData)) return [];
-  
+
     return [...serverData]
-      .filter(server => server && typeof server === 'object')
+      .filter((server) => server && typeof server === 'object')
       .sort((a, b) => (b.numplayers || 0) - (a.numplayers || 0));
   }, [data]);
 
@@ -27,16 +27,16 @@ function ServerOverview() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
           {isLoading || !data
-            ? Array(12).fill().map((_, index) => (
-              <SkeletonServerCard key={index} />
-            ))
+            ? Array(12)
+              .fill()
+              .map((_, index) => <SkeletonServerCard key={index} />)
             : sortedServers.map((server, index) => (
               <ErrorBoundary key={server.id || index}>
                 <Suspense fallback={<SkeletonServerCard />}>
                   <LazyServerCard server={server} />
                 </Suspense>
               </ErrorBoundary>
-            ))} 
+            ))}
         </div>
       )}
     </>

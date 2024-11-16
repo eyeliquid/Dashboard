@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import { ServerCard } from '../components/servers/ServerCard'
+import PropTypes from 'prop-types';
+import { ServerCard } from '../components/servers/ServerCard';
 
 const ServerContainer = ({ servers }) => {
   return (
@@ -8,11 +8,11 @@ const ServerContainer = ({ servers }) => {
         <ServerCard key={index} server={server} />
       ))}
     </div>
-  )
-}
+  );
+};
 
 ServerContainer.propTypes = {
-  servers: PropTypes.array.isRequired
-}
+  servers: PropTypes.array.isRequired,
+};
 
-export default ServerContainer
+export default ServerContainer;
