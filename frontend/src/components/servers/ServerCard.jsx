@@ -18,7 +18,7 @@ const ServerCard = ({ server }) => {
   if (showPlayerList) {
     return (
       <PlayersCard
-        players={server.players || []}
+        players={server.players}
         togglePlayerList={togglePlayerList}
         server={server}
       />
@@ -38,12 +38,11 @@ const ServerCard = ({ server }) => {
             }`}
           ></div>
         </div>
-        {/* Will make badges more dynamic later */}
-        {isSteamGame(server) && (
-          <div className="flex flex-wrap gap-2 mt-2 mb-3">
-            <Badge variant="secondary">#steam</Badge>
-          </div>
-        )}
+        {/* Display Steam and Map badges */}
+        <div className="flex flex-wrap gap-2 mt-2 mb-3">
+          {isSteamGame(server) && <Badge variant="secondary">#steam</Badge>}
+          {server.map && <Badge variant="secondary">#{server.map}</Badge>}
+        </div>
         <ServerInfo server={server} />
         {GAME_IMAGE_URLS[server.name] ? (
           <div className="h-[285px] flex items-center justify-center">

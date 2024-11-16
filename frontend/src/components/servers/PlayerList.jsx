@@ -9,15 +9,15 @@ const PlayerList = ({ players }) => {
             <tr className="text-left text-xs uppercase">
               <th className="py-2 px-1 w-1/2">Name</th>
               <th className="py-2 px-1 w-1/4">Score</th>
-              <th className="py-2 px-1 w-1/4">Time</th>
+              <th className="py-2 px-1 w-1/4">Ping</th>
             </tr>
           </thead>
           <tbody>
             {players.map((player, index) => (
               <tr key={index} className="border-t border-slate-600">
                 <td className="py-1 px-1 truncate">{player.name || `Player ${index + 1}`}</td>
-                <td className="py-1 px-1">{player.score || 'N/A'}</td>
-                <td className="py-1 px-1">{player.time || 'N/A'}</td>
+                <td className="py-1 px-1">{player.raw?.score ?? 'N/A'}</td>
+                <td className="py-1 px-1">{player.raw?.ping ?? 'N/A'}</td>
               </tr>
             ))}
           </tbody>
@@ -33,8 +33,12 @@ PlayerList.propTypes = {
   players: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      score: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-      time: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      raw: PropTypes.shape({
+        score: PropTypes.number,
+        ping: PropTypes.number,
+        id: PropTypes.number,
+        statsId: PropTypes.number,
+      }),
     })
   ).isRequired,
 };

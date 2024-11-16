@@ -1,5 +1,46 @@
 export const DUMMY_SERVERS = [
   {
+    name: 'UT2004 Server',
+    map: 'DM-Rankin',
+    password: false,
+    raw: {
+      serverid: 0,
+      ip: '',
+      queryport: 0,
+      gametype: 'xDeathMatch',
+      mutators: ['DMMutator'],
+      rules: {
+        ServerMode: 'dedicated',
+        AdminName: 'admin',
+        AdminEmail: '',
+        ServerVersion: '3369',
+        GameStats: 'False',
+        MaxSpectators: '2',
+        MinPlayers: '0',
+        EndTimeDelay: '4.00',
+        GoalScore: '25',
+        TimeLimit: '20',
+        Translocator: 'False',
+        WeaponStay: 'True',
+        ForceRespawn: 'False',
+      },
+      ping: 0,
+      flags: 0,
+      skill: '0',
+      scoreboard: {},
+    },
+    version: '',
+    maxplayers: 16,
+    numplayers: 1,
+    players: [
+      { name: 'Eye', raw: { id: 19, ping: 28, score: 0, statsId: 0 } }
+    ],
+    bots: [],
+    queryPort: 7783,
+    connect: '192.168.2.14:7782',
+    ping: 17,
+  },
+  {
     name: 'Unreal Tournament',
     map: 'CTF-Face',
     password: false,
@@ -80,11 +121,11 @@ export const DUMMY_SERVERS = [
     maxplayers: 16,
     numplayers: 5,
     players: [
-      { name: 'Pook', score: 10 },
-      { name: 'Eyeliq', score: 20 },
-      { name: 'Bubba1', score: 30 },
-      { name: 'Bubba2', score: 40 },
-      { name: 'Bubba3', score: 50 },
+      { name: 'Pook', raw: { ping: 50, score: 10 } },
+      { name: 'Eyeliq', raw: { ping: 45, score: 20 } },
+      { name: 'Bubba1', raw: { ping: 60, score: 30 } },
+      { name: 'Bubba2', raw: { ping: 55, score: 40 } },
+      { name: 'Bubba3', raw: { ping: 48, score: 50 } },
     ],
     bots: [],
     queryPort: 7783,
@@ -164,14 +205,14 @@ export const DUMMY_SERVERS = [
     maxplayers: '8',
     numplayers: 8,
     players: [
-      { name: 'Pook', score: 10 },
-      { name: 'Eyeliq', score: 20 },
-      { name: 'Bubba1', score: 30 },
-      { name: 'Bubba2', score: 40 },
-      { name: 'Bubba3', score: 50 },
-      { name: 'Bubba4', score: 60 },
-      { name: 'Bubba5', score: 70 },
-      { name: 'Bubba6', score: 80 },
+      { name: 'Pook', raw: { ping: 50, score: 10 } },
+      { name: 'Eyeliq', raw: { ping: 45, score: 20 } },
+      { name: 'Bubba1', raw: { ping: 60, score: 30 } },
+      { name: 'Bubba2', raw: { ping: 55, score: 40 } },
+      { name: 'Bubba3', raw: { ping: 48, score: 50 } },
+      { name: 'Bubba4', raw: { ping: 52, score: 60 } },
+      { name: 'Bubba5', raw: { ping: 47, score: 70 } },
+      { name: 'Bubba6', raw: { ping: 51, score: 80 } },
     ],
     bots: [],
     queryPort: 27960,
@@ -329,8 +370,8 @@ export const DUMMY_SERVERS = [
     maxplayers: 8,
     numplayers: 2,
     players: [
-      { name: 'Pook', score: 10 },
-      { name: 'Eyeliq', score: 20 },
+      { name: 'Pook', raw: { ping: 35, score: 10 } },
+      { name: 'Eyeliq', raw: { ping: 42, score: 20 } },
     ],
     bots: [],
     queryPort: 27018,
@@ -338,3 +379,56 @@ export const DUMMY_SERVERS = [
     ping: 0,
   },
 ];
+
+// Example payload
+// {
+//   "name": "UT2004 Server",
+//   "map": "DM-Rankin",
+//   "password": false,
+//   "raw": {
+//     "serverid": 0,
+//     "ip": "",
+//     "queryport": 0,
+//     "gametype": "xDeathMatch",
+//     "mutators": [
+//       "DMMutator"
+//     ],
+//     "rules": {
+//       "ServerMode": "dedicated",
+//       "AdminName": "admin",
+//       "AdminEmail": "",
+//       "ServerVersion": "3369",
+//       "GameStats": "False",
+//       "MaxSpectators": "2",
+//       "MinPlayers": "0",
+//       "EndTimeDelay": "4.00",
+//       "GoalScore": "25",
+//       "TimeLimit": "20",
+//       "Translocator": "False",
+//       "WeaponStay": "True",
+//       "ForceRespawn": "False"
+//     },
+//     "ping": 0,
+//     "flags": 0,
+//     "skill": "0",
+//     "scoreboard": {}
+//   },
+//   "version": "",
+//   "maxplayers": 16,
+//   "numplayers": 1,
+//   "players": [
+//     {
+//       "name": "Eye",
+//       "raw": {
+//         "id": 19,
+//         "ping": 28,
+//         "score": 0,
+//         "statsId": 0
+//       }
+//     }
+//   ],
+//   "bots": [],
+//   "queryPort": 7783,
+//   "connect": "192.168.2.14:7782",
+//   "ping": 17
+// }
