@@ -1,6 +1,6 @@
 import logo from '../assets/logoblack.jpg';
 import { NavLink } from 'react-router-dom';
-import { NAVIGATION_ITEMS } from '../constants';
+import { PAGES } from '../constants';
 
 const currentYear = new Date().getFullYear();
 
@@ -18,7 +18,7 @@ export const Topbar = () => (
         <h2 className="font-bold">&nbsp;Ermelan {currentYear}</h2>
       </div>
       <ul className="flex overflow-x-auto">
-        {NAVIGATION_ITEMS.map((item) => (
+        {PAGES.map((item) => (
           <li key={item.name}>
             <NavLink to={item.path} className={navLinkClass} end>
               <item.icon size={20} />

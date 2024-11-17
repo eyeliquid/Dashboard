@@ -1,12 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import Topbar from './components/Topbar';
-import ServerOverview from './pages/ServerOverview';
-import Downloads from './pages/Downloads';
-import ServerConfig from './pages/ServerConfig';
-import Games from './pages/Games';
-import Contact from './pages/Contact';
 import ErrorBoundary from './components/ErrorBoundary';
+import { PAGES } from './constants';
 
 function App() {
   return (
@@ -19,11 +16,20 @@ function App() {
               <div className="p-4 pb-16 mt-8 mb-24">
                 <div className="flex flex-col h-full items-center justify-center">
                   <Routes>
-                    <Route path="/" element={<ServerOverview />} />
-                    <Route path="/games" element={<Games />} />
-                    <Route path="/downloads" element={<Downloads />} />
-                    <Route path="/config" element={<ServerConfig />} />
-                    <Route path="/contact" element={<Contact />} />
+                    {PAGES.map((page) => {
+                      const LazyComponent = lazy(page.element);
+                      return (
+                        <Route 
+                          key={page.path} 
+                          path={page.path} 
+                          element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                              <LazyComponent />
+                            </Suspense>
+                          } 
+                        />
+                      );
+                    })}
                   </Routes>
                 </div>
               </div>
