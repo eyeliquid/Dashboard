@@ -10,6 +10,8 @@ services:
     environment:
       - NODE_ENV=production
     network_mode: host
+    volumes:
+      - ./downloads:/app/downloads
 
   frontend:
     build:

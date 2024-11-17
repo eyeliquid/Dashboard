@@ -12,8 +12,18 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3010',
-    },
+      '/api': {
+        target: 'http://localhost:3010',
+        changeOrigin: true,
+      },
+      proxy: {
+        '/downloads': {
+          target: 'http://localhost:3010',
+          changeOrigin: true,
+          secure: false
+        }
+      }
+    }
   },
   resolve: {
     alias: {

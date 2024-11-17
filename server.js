@@ -6,6 +6,7 @@ import GameDig from "gamedig";
 import cors from "cors";
 import { Server } from "socket.io";
 import http from "http";
+import mime from 'mime-types';
 
 import { serverConfigs } from "./config/serverConfigs.js";
 import { ServerInfoFetcher } from "./services/ServerInfoFetcher.js";
@@ -24,6 +25,25 @@ app.use(
     origin: frontendUrl,
   }),
 );
+
+app.use('/downloads', (req, res, next) => {
+  console.log('Download request received:', req.url);
+  
+  // Get the full file path
+  const filePath = path.join(__dirname, '..', 'downloads', req.url);
+  console.log('Attempting to serve file:', filePath);
+
+  // Set download headers
+  res.setHeader('Content-Type', mime.lookup(filePath) || 'application/octet-stream');
+  res.setHeader('Content-Disposition', `attachment; filename="${path.basename(filePath)}"`);
+  
+  next();
+}, express.static(path.join(__dirname, '..', 'downloads')));
+
+// Optional: Add an endpoint to list available files
+app.get('/api/downloads', (req, res) => {
+  res.json(mockDownloads);
+}); 
 
 const server = http.createServer(app);
 const io = new Server(server, {
