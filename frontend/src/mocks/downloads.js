@@ -1,47 +1,37 @@
-const BASE_PATH = '/downloads';
+const BASE_PATH = '//superdrive';
 
-export const mockDownloads = [
-  {
-    name: 'Age of Empires',
-    size: 1572864,
-    modified: '2024-03-15T10:30:00Z',
-    category: 'classic',
-    description: 'Age of Empires game files and mods',
-    path: `${BASE_PATH}/age_of_empires/age_of_empires_dummy.zip`,
-    gameFolder: 'age_of_empires'
-  },
-  {
-    name: 'Half-Life',
-    size: 52428800,
-    modified: '2024-03-10T15:45:00Z',
-    category: 'fps',
-    description: 'Half-Life game server and required files',
-    path: `${BASE_PATH}/half_life/half_life_dummy.zip`,
-    gameFolder: 'half_life'
-  },
-  {
-    name: 'Unreal Tournament',
-    size: 26214400,
-    modified: '2024-03-12T08:20:00Z',
-    category: 'fps',
-    description: 'Classic Unreal Tournament server files',
-    path: `${BASE_PATH}/unrealtournament/unrealtournament_dummy.zip`,
-    gameFolder: 'unrealtournament'
-  },
-  {
-    name: 'Unreal Tournament 2024',
-    size: 104857600,
-    modified: '2024-03-14T11:15:00Z',
-    category: 'latest',
-    description: 'Latest Unreal Tournament 2024 release',
-    path: `${BASE_PATH}/unrealtournament2024/ut2024_dummy.zip`,
-    gameFolder: 'unrealtournament2024'
-  }
-];
+// Helper function to parse directory structure and create download entries
+function parseDirectoryStructure(lines) {
+  const games = new Set();
+  
+  lines.forEach(line => {
+    // Look for lines that start with "+---" and get the game directory
+    const match = line.match(/\+---([^/\n]+)$/);
+    if (match) {
+      const gameName = match[1].trim();
+      // Filter out subdirectories and special characters
+      if (line.startsWith('+---') && !gameName.startsWith('_') && !gameName.startsWith('.')) {
+        games.add(gameName);
+      }
+    }
+  });
+
+  return Array.from(games).map(game => ({
+    name: game,
+    description: `Full game directory for ${game}`,
+    path: `${BASE_PATH}/${game}`,
+    category: 'game',
+    // We'll let the OS handle the actual file size display
+    size: null
+  }));
+}
 
 export const DOWNLOAD_CATEGORIES = [
-  { id: 'all', name: 'All Games' },
-  { id: 'fps', name: 'FPS Games' },
-  { id: 'classic', name: 'Classic Games' },
-  { id: 'latest', name: 'Latest Releases' }
-]; 
+  { id: 'all', name: 'All Categories' },
+  { id: 'game', name: 'Games' }
+];
+
+export const mockDownloads = parseDirectoryStructure([
+  // ... content from langames.txt ...
+]);
+

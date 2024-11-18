@@ -1,35 +1,12 @@
 export const downloadService = {
-  async downloadFile(filePath) {
+  async downloadFile(path) {
     try {
-      console.log('Starting download for:', filePath);
-      
-      const response = await fetch(filePath);
-      
-      if (!response.ok) {
-        throw new Error(`Download failed: ${response.status} ${response.statusText}`);
-      }
-      
-      const blob = await response.blob();
-      const fileName = filePath.split('/').pop();
-      
-      // Create download link
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = fileName;
-      
-      // Trigger download
-      document.body.appendChild(link);
-      link.click();
-      
-      // Cleanup
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-      
-      return true;
+      // For local network shares, we can try to open the directory directly
+      // This will open the file explorer to the network location
+      window.open(path, '_blank');
     } catch (error) {
-      console.error('Download error:', error);
-      throw error;
+      console.error('Failed to open network location:', error);
+      throw new Error('Could not access network location. Please check your network connection and permissions.');
     }
   }
 }; 
