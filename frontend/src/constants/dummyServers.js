@@ -41,7 +41,7 @@ export const DUMMY_SERVERS = [
     ping: 17,
   },
   {
-    name: 'Unreal Tournament',
+    name: 'UT TOERNAMENT',
     map: 'CTF-Face',
     password: false,
     raw: {
@@ -88,7 +88,7 @@ export const DUMMY_SERVERS = [
     ping: 49,
   },
   {
-    name: 'Unreal Tournament 2004',
+    name: 'UT2004 Server',
     map: 'DM-Rankin',
     password: false,
     raw: {
@@ -133,7 +133,7 @@ export const DUMMY_SERVERS = [
     ping: 27,
   },
   {
-    name: 'Minecraft',
+    name: 'a Minecraft Server',
     map: '',
     password: false,
     raw: {
@@ -220,7 +220,7 @@ export const DUMMY_SERVERS = [
     ping: 1,
   },
   {
-    name: 'Half Life',
+    name: 'Oldskool POEP DM',
     map: 'undertow',
     password: false,
     raw: {
@@ -272,7 +272,7 @@ export const DUMMY_SERVERS = [
     ping: 11,
   },
   {
-    name: 'Sven Co-op',
+    name: 'poep coop',
     map: 'BlackMesaEPF',
     password: false,
     raw: {
@@ -377,6 +377,34 @@ export const DUMMY_SERVERS = [
     queryPort: 27018,
     connect: '192.168.2.14:27018',
     ping: 0,
+  },
+  {
+    name: 'Valheimpie',
+    map: 'Valheim',
+    password: false,
+    raw: {},
+    version: '',
+    maxplayers: 10,
+    numplayers: 0,
+    players: [],
+    bots: [],
+    queryPort: 24567,
+    connect: '192.168.2.14:24567',
+    ping: 11,
+  },
+  {
+    name: 'G4N BAR o Trauma',
+    map: 'Valheim',
+    password: false,
+    raw: {},
+    version: '',
+    maxplayers: 10,
+    numplayers: 0,
+    players: [],
+    bots: [],
+    queryPort: 24567,
+    connect: '192.168.2.14:24567',
+    ping: 13,
   },
 ];
 

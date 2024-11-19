@@ -34,14 +34,13 @@ const ServerCard = ({ server }) => {
           </h2>
           <div
             className={`w-4 h-4 rounded-full m-2 ${
-              server.numplayers && server.numplayers > 0 ? 'bg-green-500' : 'bg-red-500'
+              server.raw ? 'bg-green-500' : 'bg-red-500'
             }`}
           ></div>
         </div>
         {/* Display Steam and Map badges */}
         <div className="flex flex-wrap gap-2 mt-2 mb-3">
           {isSteamGame(server) && <Badge variant="secondary">#steam</Badge>}
-          {server.map && <Badge variant="secondary">#{server.map}</Badge>}
         </div>
         <ServerInfo server={server} />
         {GAME_IMAGE_URLS[server.name] ? (
@@ -57,8 +56,8 @@ const ServerCard = ({ server }) => {
         )}
       </div>
       <ServerCardFooter
-        numplayers={server.numplayers}
-        maxplayers={server.maxplayers}
+        numplayers={server.raw?.scoreboard ? Object.keys(server.raw.scoreboard).length : server.numplayers}
+        maxplayers={server.raw?.rules?.MaxSpectators ? parseInt(server.raw.rules.MaxSpectators) : server.maxplayers}
         togglePlayerList={togglePlayerList}
         steamId={server.raw?.steamid || null}
         connect={server.connect}

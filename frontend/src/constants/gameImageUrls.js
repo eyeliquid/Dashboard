@@ -8,16 +8,21 @@ import minecraft from '../assets/minecraft.avif';
 import alienSwarm from '../assets/alienswarm.jpg';
 import goldenEyeSource from '../assets/goldeneyesource.jpeg';
 import halfLifeDM from '../assets/halflifedeatchmatch.webp';
+import valheim from '../assets/valheim.webp';
+import barotrauma from '../assets/barotrauma.jpg';
 
 export const GAME_IMAGE_URLS = {
-  'Unreal Tournament': unrealTournament,
-  'Unreal Tournament 2004': unrealTournament2004,
-  'Half Life': halfLife,
+  'UT TOERNAMENT': unrealTournament,
+  'UT2004 Server': unrealTournament2004,
+  'Oldskool POEP DM': halfLife,
   'Half Life 2': halfLife2,
-  'Sven Co-op': svenCoop,
+  'poep coop': svenCoop,
   'Quake 3': quake3,
-  Minecraft: minecraft,
+  'noname': quake3,
+  'a Minecraft Server': minecraft,
   'Alien Swarm Reactive Drop': alienSwarm,
   'GoldenEye: Source': goldenEyeSource,
   'HalfLife DM source': halfLifeDM,
+  'Valheimpie': valheim,
+  'G4N BAR o Trauma': barotrauma,
 };
