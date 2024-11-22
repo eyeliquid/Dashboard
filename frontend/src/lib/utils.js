@@ -7,7 +7,7 @@ export function cn(...inputs) {
 
 export const handleJoinGame = (steamId, connect) => {
   if (steamId) {
-    const steamURL = `https://steam://connect/${connect}`;
+    const steamURL = `steam://connect/${connect}`;
     window.location.href = steamURL;
   }
 };

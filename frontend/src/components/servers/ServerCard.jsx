@@ -24,7 +24,7 @@ const ServerCard = ({ server }) => {
       />
     );
   }
-
+//console.log("server",server)
   return (
     <article className="w-[318px] h-[530px] flex flex-col justify-between text-white h-full p-4 bg-slate-700 shadow-lg rounded overflow-hidden border-2 border-gray-500 hover:border-gray-300 cursor-pointer">
       <div>
@@ -56,7 +56,7 @@ const ServerCard = ({ server }) => {
         )}
       </div>
       <ServerCardFooter
-        numplayers={server.raw?.scoreboard ? Object.keys(server.raw.scoreboard).length : server.numplayers}
+        numplayers={server.raw? server.raw.numplayers : "NA"}
         maxplayers={server.raw?.rules?.MaxSpectators ? parseInt(server.raw.rules.MaxSpectators) : server.maxplayers}
         togglePlayerList={togglePlayerList}
         steamId={server.raw?.steamid || null}

@@ -1,4 +1,4 @@
-const BASE_PATH = '//superdrive';
+const BASE_PATH = '\\SUPERdrive\lan\Ermelan_Games';
 
 // Helper function to parse directory structure and create download entries
 function parseDirectoryStructure(lines) {

@@ -15,7 +15,7 @@ export const GAME_IMAGE_URLS = {
   'UT TOERNAMENT': unrealTournament,
   'UT2004 Server': unrealTournament2004,
   'Oldskool POEP DM': halfLife,
-  'Poep2 DM': halfLife2,
+  'POEP2 DM': halfLife2,
   'poep coop': svenCoop,
   'Quake 3': quake3,
   'noname': quake3,

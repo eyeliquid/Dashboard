@@ -13,18 +13,18 @@ export const PAGES = [
   //   icon: Gamepad, 
   //   element: () => import('../pages/Games')
   // },
-  { 
-    name: 'Downloads', 
-    path: '/downloads', 
-    icon: Download, 
-    element: () => import('../pages/Downloads')
-  },
-  { 
-    name: 'Config', 
-    path: '/config', 
-    icon: Server, 
-    element: () => import('../pages/ServerConfig')
-  },
+  //{ 
+  //  name: 'Downloads', 
+  //  path: '/downloads', 
+  //  icon: Download, 
+  //  element: () => import('../pages/Downloads')
+  //},
+  //{ 
+  //  name: 'Config', 
+  //  path: '/config', 
+  //  icon: Server, 
+  //  element: () => import('../pages/ServerConfig')
+  //},
   { 
     name: 'Contact', 
     path: '/contact', 

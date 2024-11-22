@@ -12,8 +12,7 @@ export function useServerData() {
     const socket = io(SOCKET_URL);
 
     socket.on('connect', () => {
-      console.log('Connected to WebSocket');
-    });
+      console:"No game specified"
 
     socket.on('serverUpdate', (serverInfo) => {
       setData(serverInfo);
