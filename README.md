@@ -5,8 +5,14 @@ This project consists of a Node.js server and a React application. Follow the in
 - Node.js (v14.0.0 or later)
 - npm (v6.0.0 or later)
 
-## Installation
+## Installation via docker
 
+-git clone https://github.com/eyeliquid/dashboard.git
+-cd Dashboard
+-docker compose up --build
+-connect to g4nbak:5173 via browser
+
+## Local Installation
 ### 1. Clone the repository
 
 bash
