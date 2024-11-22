@@ -133,7 +133,7 @@ export const DUMMY_SERVERS = [
     ping: 27,
   },
   {
-    name: 'a Minecraft Server',
+    name: 'A Minecraft Server',
     map: '',
     password: false,
     raw: {
