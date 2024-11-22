@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3010;
-const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+const frontendUrl = process.env.FRONTEND_URL || "http://g4nbak:5173";
 
 app.use(express.static(path.join(__dirname, "frontend/dist")));
 
